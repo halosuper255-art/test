@@ -1,0 +1,11 @@
+{
+  "id": "fvt-csb-sheet",
+  "title": "FVT — Player Sheet for Custom System Builder",
+  "description": "SVG player sheet for Foundry VTT v14 / Custom System Builder 6.x. Adds an optional Actor character sheet.",
+  "version": "0.1.0",
+  "compatibility": {"minimum": "14", "verified": "14.365", "maximum": "14"},
+  "system": ["custom-system-builder"],
+  "esmodules": ["fvt-csb-sheet.mjs"],
+  "styles": ["fvt-player-sheet.css"],
+  "relationships": {"systems": [{"id": "custom-system-builder", "type": "system", "compatibility": {"minimum": "6.0.0"}}]}
+}

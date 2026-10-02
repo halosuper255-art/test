@@ -1,0 +1,130 @@
+<div class="fvt-stage">
+  <main class="fvt-sheet" aria-label="Лист персонажа FVT">
+    <img class="skin skin-top" src="modules/fvt-csb-sheet/assets/svg/top-window.svg" alt="">
+    <img class="skin skin-avatar-frame" src="modules/fvt-csb-sheet/assets/svg/portrait-frame.svg" alt="">
+    <img class="skin skin-left-banner" src="modules/fvt-csb-sheet/assets/svg/left-banner.svg" alt="">
+    <img class="skin skin-right-panel" src="modules/fvt-csb-sheet/assets/svg/right-panel.svg" alt="">
+
+    <button class="portrait-image" data-fvt-action="portrait" type="button" title="Изменить портрет" {{#unless editable}}disabled{{/unless}}>
+      <img src="{{portrait}}" alt="Портрет {{actorName}}">
+    </button>
+    <div class="nameplate">
+      <img src="modules/fvt-csb-sheet/assets/svg/nameplate.svg" alt="">
+      <input class="name-input" type="text" value="{{actorName}}" data-actor-field="name" aria-label="Имя персонажа" {{#unless editable}}disabled{{/unless}}>
+    </div>
+    <div class="identity-block identity-race">
+      <img src="modules/fvt-csb-sheet/assets/svg/identity-bar.svg" alt="">
+      <span class="identity-label">Раса</span><input type="text" value="{{props.race}}" data-prop="race" aria-label="Раса" {{#unless editable}}disabled{{/unless}}>
+    </div>
+    <div class="identity-block identity-subrace">
+      <img src="modules/fvt-csb-sheet/assets/svg/identity-bar.svg" alt="">
+      <span class="identity-label">Подраса</span><input type="text" value="{{props.subrace}}" data-prop="subrace" aria-label="Подраса" {{#unless editable}}disabled{{/unless}}>
+    </div>
+    <div class="identity-block identity-city">
+      <img src="modules/fvt-csb-sheet/assets/svg/identity-bar.svg" alt="">
+      <span class="identity-label">Город</span><input type="text" value="{{props.birth_city}}" data-prop="birth_city" aria-label="Город рождения" {{#unless editable}}disabled{{/unless}}>
+    </div>
+    <div class="identity-block identity-age">
+      <img src="modules/fvt-csb-sheet/assets/svg/identity-bar.svg" alt="">
+      <span class="identity-label">Возраст</span><input type="number" step="1" value="{{props.age}}" data-prop="age" aria-label="Возраст" {{#unless editable}}disabled{{/unless}}>
+    </div>
+
+    <nav class="tabs" aria-label="Разделы листа">
+      <button class="tab tab-profile" type="button" data-fvt-tab="profile"><span>Профиль</span></button>
+      <button class="tab tab-inventory" type="button" data-fvt-tab="inventory"><span>Инвентарь</span></button>
+      <button class="tab tab-bio" type="button" data-fvt-tab="bio"><span>Биография</span></button>
+    </nav>
+
+    <section class="view view-profile" data-fvt-view="profile">
+      <img class="skin skin-main-panel" src="modules/fvt-csb-sheet/assets/svg/main-panel.svg" alt="">
+      <div class="main-heading">ХАРАКТЕРИСТИКИ</div>
+      <img class="skin skin-special-divider" src="modules/fvt-csb-sheet/assets/svg/special-divider.svg" alt="">
+      <div class="special-title">S.P.E.C.I.A.L.</div>
+      <div class="special-grid" aria-label="SPECIAL характеристики">
+        <label class="special-card s" style="--hue:0deg;--sat:1;--bright:1"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>S</b><em>Сила</em><input type="number" step="1" min="-5" max="20" value="{{props.special_s}}" data-prop="special_s" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card p" style="--hue:42deg;--sat:.82;--bright:1.16"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>P</b><em>Восприятие</em><input type="number" step="1" min="-5" max="20" value="{{props.special_p}}" data-prop="special_p" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card e" style="--hue:112deg;--sat:.72;--bright:.9"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>E</b><em>Выносливость</em><input type="number" step="1" min="-5" max="20" value="{{props.special_e}}" data-prop="special_e" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card c" style="--hue:188deg;--sat:.66;--bright:.88"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>C</b><em>Харизма</em><input type="number" step="1" min="-5" max="20" value="{{props.special_c}}" data-prop="special_c" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card i" style="--hue:252deg;--sat:.63;--bright:.86"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>I</b><em>Интеллект</em><input type="number" step="1" min="-5" max="20" value="{{props.special_i}}" data-prop="special_i" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card a" style="--hue:176deg;--sat:.82;--bright:1.03"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>A</b><em>Ловкость</em><input type="number" step="1" min="-5" max="20" value="{{props.special_a}}" data-prop="special_a" {{#unless editable}}disabled{{/unless}}></label>
+        <label class="special-card l" style="--hue:0deg;--sat:0;--bright:.82"><img src="modules/fvt-csb-sheet/assets/svg/special-card.svg" alt=""><b>L</b><em>Удача</em><input type="number" step="1" min="-5" max="20" value="{{props.special_l}}" data-prop="special_l" {{#unless editable}}disabled{{/unless}}></label>
+      </div>
+      <div class="infection">
+        <img src="modules/fvt-csb-sheet/assets/svg/infection-frame.svg" alt="">
+        <div class="infection-title">ЗАРАЖЕНИЕ ОРИДЖИНИУМОМ</div>
+        <label class="resistance">Сопротивление <input type="number" step="any" value="{{props.originium_resistance}}" data-prop="originium_resistance" {{#unless editable}}disabled{{/unless}}></label>
+        <div class="infection-track" data-fvt-infection></div>
+        <div class="infection-marks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+      </div>
+      <section class="notes-panel">
+        <div class="notes-title">ЗАМЕТКИ</div>
+        <textarea data-prop="notes" aria-label="Заметки" {{#unless editable}}disabled{{/unless}}>{{props.notes}}</textarea>
+      </section>
+    </section>
+
+    <section class="view content-view" data-fvt-view="inventory">
+      <div class="content-paper">
+        <header><strong>ИНВЕНТАРЬ</strong><span>RHODES ISLAND // LOGISTICS</span></header>
+        <div class="inventory-columns">
+          <section><div class="inventory-section-head"><h3>ЭКИПИРОВАНО</h3><button class="inventory-add" type="button" data-fvt-add="equipped" {{#unless editable}}disabled{{/unless}}>Добавить</button></div>
+            <div class="scroll-list">
+              {{#each equippedItems}}
+                <article class="inventory-item" data-item-id="{{id}}"><input class="item-name" value="{{name}}" data-fvt-item-name="{{id}}" aria-label="Название предмета" {{#unless ../editable}}disabled{{/unless}}><textarea class="item-description" data-fvt-item-description="{{id}}" aria-label="Описание предмета" {{#unless ../editable}}disabled{{/unless}}>{{description}}</textarea><div class="fvt-item-actions"><button class="item-open" type="button" data-fvt-item-open="{{id}}">Открыть CSB</button><button class="item-move" type="button" data-fvt-item-move="{{id}}" {{#unless ../editable}}disabled{{/unless}}>В рюкзак</button><button class="item-delete" type="button" data-fvt-item-delete="{{id}}" {{#unless ../editable}}disabled{{/unless}}>Удалить</button></div></article>
+              {{/each}}
+            </div>
+          </section>
+          <section><div class="inventory-section-head"><h3>РЮКЗАК</h3><button class="inventory-add" type="button" data-fvt-add="backpack" {{#unless editable}}disabled{{/unless}}>Добавить</button></div>
+            <div class="scroll-list">
+              {{#each backpackItems}}
+                <article class="inventory-item" data-item-id="{{id}}"><input class="item-name" value="{{name}}" data-fvt-item-name="{{id}}" aria-label="Название предмета" {{#unless ../editable}}disabled{{/unless}}><textarea class="item-description" data-fvt-item-description="{{id}}" aria-label="Описание предмета" {{#unless ../editable}}disabled{{/unless}}>{{description}}</textarea><div class="fvt-item-actions"><button class="item-open" type="button" data-fvt-item-open="{{id}}">Открыть CSB</button><button class="item-move" type="button" data-fvt-item-move="{{id}}" {{#unless ../editable}}disabled{{/unless}}>Надеть</button><button class="item-delete" type="button" data-fvt-item-delete="{{id}}" {{#unless ../editable}}disabled{{/unless}}>Удалить</button></div></article>
+              {{/each}}
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="view content-view" data-fvt-view="bio">
+      <div class="content-paper bio-paper">
+        <header><strong>БИОГРАФИЯ</strong><span>PERSONNEL ARCHIVE</span></header>
+        <div class="bio-toolbar">
+          <button type="button" data-fvt-format="bold" {{#unless editable}}disabled{{/unless}}><b>B</b></button>
+          <button type="button" data-fvt-format="italic" {{#unless editable}}disabled{{/unless}}><i>I</i></button>
+          <button type="button" data-fvt-format="underline" {{#unless editable}}disabled{{/unless}}><u>U</u></button>
+          <button type="button" data-fvt-format="h2" {{#unless editable}}disabled{{/unless}}>H2</button>
+          <button type="button" data-fvt-format="insertUnorderedList" {{#unless editable}}disabled{{/unless}}>•</button>
+          <span class="bio-save-state" data-fvt-bio-state>Сохраняется при выходе из поля</span>
+        </div>
+        <div class="bio-editor" data-fvt-bio contenteditable="{{#if editable}}true{{else}}false{{/if}}" spellcheck="true">{{{bioHtml}}}</div>
+      </div>
+    </section>
+
+    <aside class="right-data">
+      <section class="right-section parameters"><h2>✦ ПАРАМЕТРЫ</h2>
+        <label><span>♥ &nbsp; Здоровье</span><input type="number" step="any" value="{{props.health}}" data-prop="health" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>⬟ &nbsp; Защита</span><input type="number" step="any" value="{{props.defense}}" data-prop="defense" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>➤ &nbsp; Скорость</span><input type="number" step="any" value="{{props.speed}}" data-prop="speed" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>✷ &nbsp; Инициатива</span><input type="number" step="any" value="{{props.initiative}}" data-prop="initiative" {{#unless editable}}disabled{{/unless}}></label>
+      </section>
+      <section class="right-section skills"><h2>★ НАВЫКИ</h2>
+        <label><span>⚔ &nbsp; Бой</span><input type="number" step="any" value="{{props.skill_melee}}" data-prop="skill_melee" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>◎ &nbsp; Стрельба</span><input type="number" step="any" value="{{props.skill_ranged}}" data-prop="skill_ranged" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>✚ &nbsp; Медицина</span><input type="number" step="any" value="{{props.skill_medicine}}" data-prop="skill_medicine" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>♠ &nbsp; Выживание</span><input type="number" step="any" value="{{props.skill_survival}}" data-prop="skill_survival" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>⚙ &nbsp; Техника</span><input type="number" step="any" value="{{props.skill_technique}}" data-prop="skill_technique" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>▣ &nbsp; Социальные</span><input type="number" step="any" value="{{props.skill_social}}" data-prop="skill_social" {{#unless editable}}disabled{{/unless}}></label>
+        <label><span>▲ &nbsp; Магия / Искусства</span><input type="number" step="any" value="{{props.skill_arts}}" data-prop="skill_arts" {{#unless editable}}disabled{{/unless}}></label>
+      </section>
+      <section class="right-section traits"><h2>ОСОБЫЕ ЧЕРТЫ</h2>
+        {{#each traitSlots}}
+          <div class="tag-slot" data-fvt-trait-slot="{{index}}">
+            {{#each tags}}
+              <span class="tag {{#if negative}}negative{{/if}}">{{text}}<button class="tag-remove" type="button" data-fvt-trait-remove="{{slotIndex}}:{{index}}" aria-label="Удалить {{text}}" {{#unless ../../editable}}disabled{{/unless}}>×</button></span>
+            {{/each}}
+            <input class="tag-entry" type="text" placeholder="Новый тег" aria-label="Добавить черту" {{#unless ../editable}}disabled{{/unless}}>
+          </div>
+        {{/each}}
+      </section>
+    </aside>
+  </main>
+</div>
